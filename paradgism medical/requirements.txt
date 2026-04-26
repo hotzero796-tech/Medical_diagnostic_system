@@ -1,0 +1,16 @@
+# ── Python packages (install with: pip install -r requirements.txt) ───────────
+openpyxl>=3.1
+
+# ── System binaries (must be installed separately and added to PATH) ──────────
+#
+# SBCL  (Steel Bank Common Lisp) — NLP engine
+#   Windows / Mac / Linux: https://www.sbcl.org/platform-table.html
+#   Windows shortcut:  winget install SBCL.SBCL
+#
+# SWI-Prolog — diagnostic inference engine
+#   Windows / Mac / Linux: https://www.swi-prolog.org/Download.html
+#   Windows shortcut:  winget install SWI-Prolog.SWI-Prolog
+#
+# After installing, verify both are on PATH:
+#   sbcl --version
+#   swipl --version
