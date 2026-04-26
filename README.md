@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge)]()
 
-A desktop diagnostic assistant developed for **BCS 222: Programming Paradigms** (Spring 2025-2026). The system converses with a patient about their symptoms, computes a NEWS2 clinical risk score from optional vital signs, and returns a ranked list of likely conditions with recommended precautions. It deliberately combines three paradigms: **Object-Oriented (Python)**, **Functional (Common Lisp / SBCL)**, and **Logic (SWI-Prolog)**, with each paradigm responsible for a distinct concern.
+A desktop diagnostic assistant that converses with a patient about their symptoms, computes a NEWS2 clinical risk score from optional vital signs, and returns a ranked list of likely conditions with recommended precautions. It deliberately combines three paradigms: **Object-Oriented (Python)**, **Functional (Common Lisp / SBCL)**, and **Logic (SWI-Prolog)**, with each paradigm responsible for a distinct concern.
 
 [**Live Documentation**](https://hotzero796-tech.github.io/Medical_diagnostic_system/) · [**Report a Bug**](https://github.com/hotzero796-tech/Medical_diagnostic_system/issues) · [**Request a Feature**](https://github.com/hotzero796-tech/Medical_diagnostic_system/issues)
 
@@ -29,7 +29,6 @@ A desktop diagnostic assistant developed for **BCS 222: Programming Paradigms** 
 - [Concurrency Model](#concurrency-model)
 - [Outputs and Persistence](#outputs-and-persistence)
 - [Limitations](#limitations)
-- [Disclaimer](#disclaimer)
 - [License](#license)
 
 ---
@@ -203,7 +202,7 @@ The system uses three kinds of thread:
 - **A worker thread** executes long-running Prolog queries so the UI never freezes. A typical query takes between 500 ms and 2 seconds, which would otherwise block visibly on the main thread.
 - **Subprocess threads** are managed by Python's `subprocess` module for SBCL and SWI-Prolog calls.
 
-Results are marshalled back to the main thread through a thread-safe queue and rendered when the next Tk event loop tick fires. This satisfies non-functional requirement NFR-9 (the system must remain responsive while inference is running).
+Results are marshalled back to the main thread through a thread-safe queue and rendered when the next Tk event loop tick fires. This keeps the system responsive while inference is running.
 
 ---
 
@@ -230,20 +229,6 @@ The patient history store is a JSON file per patient. Symptoms confirmed in two 
 
 ---
 
-## Disclaimer
-
-> This software is an academic project intended to demonstrate multi-paradigm programming. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified physician with any questions you may have regarding a medical condition. A medical disclaimer is shown at every stage of the application where a user might mistake the tool for an actual diagnosis.
-
----
-
 ## License
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for full text.
-
----
-
-## Authors and Course
-
-Built for **BCS 222: Programming Paradigms**, School of Engineering, Applied Sciences, and Technology. Course Instructor: **Dr. Haythem El-Messiry**. Spring 2025-2026.
-
-Maintained by [@hotzero796-tech](https://github.com/hotzero796-tech).
